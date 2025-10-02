@@ -129,14 +129,13 @@ export default function Page() {
         </div>
         <nav className="flex items-center gap-2">
           <a href="#about" className="rounded-xl px-3 py-1.5 text-sm text-white/80 hover:bg-white/10">About</a>
-          <a href="#work" className="rounded-xl px-3 py-1.5 text-sm text-white/80 hover:bg-white/10">Work</a>
           <a href="#contact" className="rounded-xl px-3 py-1.5 text-sm text-white/80 hover:bg-white/10">Contact</a>
         </nav>
       </header>
 
       {/* Hero */}
       <main className="mx-auto w-full max-w-6xl px-6 pt-24">
-        <motion.section className="relative grid items-center gap-10 py-12 sm:grid-cols-2 sm:py-24">
+        <motion.section className="relative min-h-[70vh] grid place-items-center text-center py-20">
           <motion.div style={{ y: heroParallax }} className="relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -149,38 +148,9 @@ export default function Page() {
               <span className="text-white/80">First year Computer Science major</span>
             </motion.h1>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <MagneticButton href="https://nextjs.org/">Explore Next.js</MagneticButton>
               <MagneticButton href="#contact">Contact Me</MagneticButton>
-            </div>
-          </motion.div>
-
-          {/* Hero Art */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative h-[320px] sm:h-[420px]"
-          >
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-white/10 to-white/5 p-[1px] shadow-2xl">
-              <div className="relative h-full w-full rounded-[2rem] bg-black/50 backdrop-blur-xl">
-                <Image src="/vercel.svg" alt="Vercel" width={140} height={140} className="absolute right-8 top-8 opacity-90 invert" />
-                <div className="absolute inset-0 m-8 grid grid-cols-3 gap-4">
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: i * 0.05 }}
-                    >
-                      <div className="text-sm font-semibold text-white/80">Card {i + 1}</div>
-                      <div className="mt-1 text-xs text-white/60">Shiny glass card with hover lift.</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
             </div>
           </motion.div>
         </motion.section>
@@ -188,7 +158,7 @@ export default function Page() {
 
       <Section id="about" title="About Me">
         <p>
-          I started self‑studying how to code when I was a freshman in high school. Building things on the computer has
+          I started self-studying how to code when I was a freshman in high school. Building things on the computer has
           always been my dream. I can't wait to create more projects and meet more people!
         </p>
         <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -211,25 +181,6 @@ export default function Page() {
             </motion.li>
           ))}
         </ul>
-      </Section>
-
-      <Section id="work" title="Selected Work">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {[1, 2, 3, 4].map((i) => (
-            <motion.a
-              key={i}
-              href="#"
-              whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-lg"
-            >
-              <div className="relative z-10">
-                <h3 className="text-lg font-semibold">Project {i}</h3>
-                <p className="mt-1 text-sm text-white/70">An elegant interface with delightful motion and crisp visuals.</p>
-              </div>
-              <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-cyan-400/20 to-fuchsia-400/20 blur-2xl transition-all group-hover:scale-125" />
-            </motion.a>
-          ))}
-        </div>
       </Section>
 
       <Section id="contact" title="Get In Touch">
